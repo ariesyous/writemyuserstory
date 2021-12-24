@@ -29,7 +29,7 @@ export class OpenAIService {
       "temperature": 0.7,
       "max_tokens": 64,
       "top_p": 1,
-      "frequency_penalty": 0.58,
+      "frequency_penalty": 1.0,
       "presence_penalty": 1.0
     }
 

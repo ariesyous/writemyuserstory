@@ -8,17 +8,17 @@
 
     <main class="flex flex-col text-center md:max-w-[80%] lg:max-w-[60%] mx-auto">
         <div class="my-6">
-            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" class="w-full"
+            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" class="w-full p-4"
                 placeholder="Describe what the story is for"></textarea>
         </div>
 
-        <div class="max-w-full">
+        <div class="">
             <button type="button" (click)="getCompletion()"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Generate
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Generate
                 user story 🤖</button>
         </div>
         <div class="my-6">
-            <textarea id="story" name="story" rows="6" class="w-full">{{this.generatedUserStory}}</textarea>
+            <textarea id="story" name="story" rows="6" class="w-full p-4">{{this.generatedUserStory}}</textarea>
 
         </div>
     </main>
