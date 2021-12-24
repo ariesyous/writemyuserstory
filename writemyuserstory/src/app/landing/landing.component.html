@@ -1,6 +1,5 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div>
-    <div class="mx-auto">
+<div class="container mx-auto max-w-[80%]">
+    <div>
         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span class="block xl:inline">Write my </span>
             <span class="block text-blue-600 xl:inline">user story</span>
@@ -8,17 +7,18 @@
     </div>
 
     <div class="mx-auto">
-        <div class="w-full">
-            <textarea id="prompt" name="prompt" rows="7" cols="80"
-                placeholder="Describe what the story is for"></textarea>
+        <div>
+            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" cols="80"
+                class="max-w-full" placeholder="Describe what the story is for"></textarea>
         </div>
         <button type="button" (click)="getCompletion()"
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Generate
             user story 🤖</button>
     </div>
     <div class="mx-auto">
-        <div class="w-full">
-            <textarea id="story" name="story" rows="6" cols="80">{{this.generatedUserStory}}</textarea>
+        <div>
+            <textarea id="story" name="story" rows="6" cols="80"
+                class="max-w-full">{{this.generatedUserStory}}</textarea>
         </div>
 
     </div>

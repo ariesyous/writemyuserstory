@@ -8,6 +8,7 @@ import { OpenAIService } from '../open-ai.service';
 })
 export class LandingComponent implements OnInit {
 
+  private textareaValue = '';
   generatedUserStory = ''
 
   constructor(private openAIService: OpenAIService) { }
@@ -15,8 +16,17 @@ export class LandingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  textareaValueChange(e: any) {
+    try {
+      this.textareaValue = e.target.value;
+    } catch (e) {
+      console.info('could not set textarea-value');
+    }
+  }
+
   getCompletion() {
-    this.openAIService.createCompletion('blah').subscribe((res) => {
+    console.log('user input is', this.textareaValue)
+    this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
       console.log('res from completion is', res.choices[0].text)
       this.generatedUserStory = res.choices[0].text;
     })
