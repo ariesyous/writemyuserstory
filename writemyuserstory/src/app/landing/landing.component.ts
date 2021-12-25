@@ -25,10 +25,8 @@ export class LandingComponent implements OnInit {
   }
 
   getCompletion() {
-    console.log('user input is', this.textareaValue)
     this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
-      console.log('res from completion is', res.choices[0].text)
-      this.generatedUserStory = res.choices[0].text.trim();
+      this.generatedUserStory = res.trim();
     })
   }
 }

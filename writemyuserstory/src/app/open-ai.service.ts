@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
 
-const engine_id = 'davinci-instruct-beta-v3'
-const url = `https://api.openai.com/v1/engines/${engine_id}/completions`
+// const url = 'https://europe-west2-write-my-user-story.cloudfunctions.net/createCompletion'
+const url = 'http://localhost:5001/write-my-user-story/europe-west2/createCompletion'
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: `Bearer`
-  })
+    'Accept': 'application/json',
+  }),
 };
 
 @Injectable({
