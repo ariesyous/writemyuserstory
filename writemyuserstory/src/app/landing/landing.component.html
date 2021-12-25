@@ -17,10 +17,10 @@
         </div>
 
         <div>
-            <button type="button" (click)="getCompletion()"
+            <button type="button" *ngIf="!this.showSpinner" (click)="getCompletion()"
                 class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-full shadow transition ease-in-out duration-150">Generate
                 user story 🤖</button>
-            <button type="button" disabled
+            <button type="button" disabled *ngIf="this.showSpinner"
                 class="flex justify-center px-4 py-2 font-semibold w-full leading-6 shadow rounded text-white bg-orange-500 hover:bg-orange-400 transition ease-in-out duration-150 cursor-not-allowed">
                 <svg class="animate-spin mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">

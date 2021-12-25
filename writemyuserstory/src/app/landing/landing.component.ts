@@ -9,7 +9,7 @@ import { OpenAIService } from '../open-ai.service';
 export class LandingComponent implements OnInit {
 
   private textareaValue = '';
-  private showSpinner = false;
+  showSpinner = false;
   generatedUserStory = ''
 
   constructor(private openAIService: OpenAIService) { }
@@ -26,7 +26,9 @@ export class LandingComponent implements OnInit {
   }
 
   getCompletion() {
+    this.showSpinner = true;
     this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
+      this.showSpinner = false;
       this.generatedUserStory = res.trim();
     })
   }
