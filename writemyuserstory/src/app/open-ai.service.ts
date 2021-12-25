@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
 
-// const url = 'https://europe-west2-write-my-user-story.cloudfunctions.net/createCompletion'
-const url = 'http://localhost:5001/write-my-user-story/europe-west2/createCompletion' // for local testing
+const url = 'https://europe-west2-write-my-user-story.cloudfunctions.net/createCompletion'
+// const url = 'http://localhost:5001/write-my-user-story/europe-west2/createCompletion' // for local testing
 
 const httpOptions = {
   headers: new HttpHeaders({
