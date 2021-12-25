@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const url = `${environment.apiUrl}createCompletion` // for local testing
+const url = `${environment.apiUrl}createCompletion`
 
 const httpOptions = {
   headers: new HttpHeaders({
