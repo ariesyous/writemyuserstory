@@ -9,6 +9,7 @@ import { OpenAIService } from '../open-ai.service';
 export class LandingComponent implements OnInit {
 
   private textareaValue = '';
+  private showSpinner = false;
   generatedUserStory = ''
 
   constructor(private openAIService: OpenAIService) { }

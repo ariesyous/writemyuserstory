@@ -10,6 +10,10 @@ exports.createCompletion = functions
 
         response.set("Access-Control-Allow-Origin", "*");
 
+        console.log('Request body is', request.body.userPrompt);
+
+        delete request.body.userPrompt;
+
         fetch(url, {
             method: "POST",
             body: JSON.stringify(request.body),
@@ -20,7 +24,10 @@ exports.createCompletion = functions
             },
         })
             .then((res) => res.json())
-            .then(res => response.send(JSON.stringify(res.choices[0].text)))
+            .then(res => {
+                console.log('Response is', res.choices[0].text)
+                response.send(JSON.stringify(res.choices[0].text))
+            })
             .catch(error => response.send(error.message));
 
     });
