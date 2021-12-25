@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
-const url = 'https://europe-west2-write-my-user-story.cloudfunctions.net/createCompletion'
-// const url = 'http://localhost:5001/write-my-user-story/europe-west2/createCompletion' // for local testing
+const url = `${environment.apiUrl}createCompletion` // for local testing
 
 const httpOptions = {
   headers: new HttpHeaders({

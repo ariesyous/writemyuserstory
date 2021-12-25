@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: "http://localhost:5001/write-my-user-story/europe-west2/",
 };
 
 /*
