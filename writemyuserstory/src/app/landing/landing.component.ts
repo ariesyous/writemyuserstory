@@ -11,6 +11,7 @@ export class LandingComponent implements OnInit {
   private textareaValue = '';
   showSpinner = false;
   generatedUserStory = ''
+  askForFeedback = false;
 
   constructor(private openAIService: OpenAIService) { }
 
@@ -30,6 +31,7 @@ export class LandingComponent implements OnInit {
     this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
       this.showSpinner = false;
       this.generatedUserStory = res.trim();
+      this.askForFeedback = true;
     })
   }
 }
