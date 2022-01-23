@@ -1,6 +1,6 @@
 <div class="bg-white">
     <h3>How was this result?</h3>
-    <button id="good" class="hover:scale-125 transition ease-in-out text-5xl mr-10" (click)="onFeedbackClick($event)">😄</button>
-    <button id="meh" class="hover:scale-125 transition ease-in-out text-5xl mr-10" (click)="onFeedbackClick($event)">😐</button>
-    <button id="bad" class="hover:scale-125 transition ease-in-out text-5xl" (click)="onFeedbackClick($event)">🙁</button>
+    <button id="good" class="hover:scale-125 transition ease-in-out text-5xl mr-10" [ngClass]="selectedEmoji === 'good'? 'grayscale-0 hover:grayscale-0' : 'grayscale hover:grayscale-0'" (click)="onFeedbackClick($event)">😄</button>
+    <button id="meh" class="hover:scale-125 transition ease-in-out text-5xl mr-10" [ngClass]="selectedEmoji === 'meh'? 'grayscale-0 hover:grayscale-0' : 'grayscale hover:grayscale-0'" (click)="onFeedbackClick($event)">😐</button>
+    <button id="bad" class="hover:scale-125 transition ease-in-out text-5xl" [ngClass]="selectedEmoji === 'bad'? 'grayscale-0 hover:grayscale-0' : 'grayscale hover:grayscale-0'" (click)="onFeedbackClick($event)">🙁</button>
 </div>

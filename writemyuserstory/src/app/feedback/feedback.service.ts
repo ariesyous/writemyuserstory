@@ -11,7 +11,10 @@ export class FeedbackService {
 
   submitFeedback(feedbackData: Object) {
 
-    this.firestore.collection('feedback').add(feedbackData)
+    this.firestore.collection('feedback').add(feedbackData).catch((error) => {
+      alert(`Oops, something went wrong. ${error}`);
+    }
+    )
 
   }
 }

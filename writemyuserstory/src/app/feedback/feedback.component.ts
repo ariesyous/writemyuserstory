@@ -9,6 +9,8 @@ import { FeedbackService } from './feedback.service';
 })
 export class FeedbackComponent implements OnInit {
 
+  selectedEmoji: string = '';
+
   constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
@@ -16,7 +18,8 @@ export class FeedbackComponent implements OnInit {
 
   onFeedbackClick(event: Event) {
     const target = event.currentTarget as HTMLInputElement;
-    console.log(target.id)
+    this.selectedEmoji = target.id;
+    console.log('emoji is', this.selectedEmoji)
     this.feedbackService.submitFeedback({ rating: target.id });
   }
 }
