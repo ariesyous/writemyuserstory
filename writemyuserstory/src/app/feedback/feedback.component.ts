@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FeedbackService } from './feedback.service';
+
 
 @Component({
   selector: 'app-feedback',
@@ -7,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
   }
 
-  onFeedbackClick() {
-    console.log('feedback click');
+  onFeedbackClick(event: Event) {
+    const target = event.currentTarget as HTMLInputElement;
+    console.log(target.id)
+    this.feedbackService.submitFeedback({ rating: target.id });
   }
 }
