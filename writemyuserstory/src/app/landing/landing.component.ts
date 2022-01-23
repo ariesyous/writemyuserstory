@@ -22,6 +22,7 @@ export class LandingComponent implements OnInit {
     try {
       this.textareaValue = e.target.value;
     } catch (e) {
+      alert('Error - could not set textarea-value');
       console.info('could not set textarea-value');
     }
   }
