@@ -5,8 +5,5 @@ module.exports = {
       'body': ['Inter']
     }
   },
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.{html,ts}']
-  }
+  content: ['./src/**/*.{html,ts}']
 }
