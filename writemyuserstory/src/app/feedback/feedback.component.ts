@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FeedbackService } from './feedback.service';
 
 
@@ -8,6 +8,8 @@ import { FeedbackService } from './feedback.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
+  @Input() prompt = '';
+  @Input() completion = '';
   @Output() showFeedback = new EventEmitter<boolean>();
 
   @ViewChild('feedbackInput')
@@ -41,7 +43,7 @@ export class FeedbackComponent {
   }
 
   onFeedbackSubmit() {
-    this.feedbackService.submitFeedback({ rating: this.selectedEmoji, feedbackText: this.textareaValue });
+    this.feedbackService.submitFeedback({ rating: this.selectedEmoji, feedbackText: this.textareaValue, prompt: this.prompt, completion: this.completion });
     this.showThankYou = true;
   }
 

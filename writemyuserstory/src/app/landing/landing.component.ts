@@ -8,7 +8,7 @@ import { OpenAIService } from '../open-ai.service';
 })
 export class LandingComponent implements OnInit {
 
-  private textareaValue = '';
+  textareaValue = '';
   showSpinner = false;
   generatedUserStory = ''
   askForFeedback = false;
@@ -27,21 +27,14 @@ export class LandingComponent implements OnInit {
     }
   }
 
-  // getCompletion() {
-  //   this.showSpinner = true;
-  //   this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
-  //     this.showSpinner = false;
-  //     this.generatedUserStory = res.trim();
-  //     this.askForFeedback = true;
-  //   })
-  // }
   getCompletion() {
-    // this.showSpinner = true;
-    // this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
-    //   this.showSpinner = false;
-    this.generatedUserStory = "test story";
-    this.askForFeedback = true;
-    // })
+    this.showSpinner = true;
+    this.resetFeedback(false);
+    this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
+      this.showSpinner = false;
+      this.generatedUserStory = res.trim();
+      this.askForFeedback = true;
+    })
   }
 
   resetFeedback(feedbackFlag: boolean) {

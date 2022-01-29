@@ -35,6 +35,7 @@
                 class="w-full p-4 drop-shadow-md">{{this.generatedUserStory}}</textarea>
 
         </div>
-        <app-feedback *ngIf="askForFeedback" (showFeedback)="resetFeedback($event)"></app-feedback>
+        <app-feedback *ngIf="askForFeedback" [prompt]="this.textareaValue" [completion]="this.generatedUserStory"
+            (showFeedback)="resetFeedback($event)"></app-feedback>
     </main>
 </div>
