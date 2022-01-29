@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "write-my-user-story": {
+      "hosting": {
+        "writemyuserstory": [
+          "write-my-user-story"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "write-my-user-story"
+  }
+}

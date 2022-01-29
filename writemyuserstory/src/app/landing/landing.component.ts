@@ -8,9 +8,10 @@ import { OpenAIService } from '../open-ai.service';
 })
 export class LandingComponent implements OnInit {
 
-  private textareaValue = '';
+  textareaValue = '';
   showSpinner = false;
   generatedUserStory = ''
+  askForFeedback = false;
 
   constructor(private openAIService: OpenAIService) { }
 
@@ -21,15 +22,22 @@ export class LandingComponent implements OnInit {
     try {
       this.textareaValue = e.target.value;
     } catch (e) {
+      alert('Error - could not set textarea-value');
       console.info('could not set textarea-value');
     }
   }
 
   getCompletion() {
     this.showSpinner = true;
+    this.resetFeedback(false);
     this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
       this.showSpinner = false;
       this.generatedUserStory = res.trim();
+      this.askForFeedback = true;
     })
+  }
+
+  resetFeedback(feedbackFlag: boolean) {
+    this.askForFeedback = feedbackFlag;
   }
 }

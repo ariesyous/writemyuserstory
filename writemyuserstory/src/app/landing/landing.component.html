@@ -30,10 +30,12 @@
                     </path>
                 </svg>Generating</button>
         </div>
-        <div class="my-6">
+        <div class="my-6" *ngIf="generatedUserStory && generatedUserStory !== '' ">
             <textarea id="story" name="story" rows="6"
                 class="w-full p-4 drop-shadow-md">{{this.generatedUserStory}}</textarea>
 
         </div>
+        <app-feedback *ngIf="askForFeedback" [prompt]="this.textareaValue" [completion]="this.generatedUserStory"
+            (showFeedback)="resetFeedback($event)"></app-feedback>
     </main>
 </div>
