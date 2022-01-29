@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FeedbackService } from './feedback.service';
 
 
@@ -8,32 +8,27 @@ import { FeedbackService } from './feedback.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
+  @Output() showFeedback = new EventEmitter<boolean>();
+
   @ViewChild('feedbackInput')
   feedbackInputRef: ElementRef | any;
 
   selectedEmoji: string = '';
   private textareaValue = '';
 
-  isDismissed: boolean = false;
   showThankYou: boolean = false;
 
   constructor(private feedbackService: FeedbackService) { }
 
   onEmojiClick(event: Event) {
-    console.log('el is', this.feedbackInputRef);
     const target = event.currentTarget as HTMLInputElement;
     this.selectedEmoji = target.id;
     const checkExist = setInterval(() => {
       if (this.feedbackInputRef) {
-        console.log("Exists!");
         this.feedbackInputRef.nativeElement.scrollIntoView({ behavior: 'smooth' });
         clearInterval(checkExist);
       }
     }, 100)
-    console.log('selected emoji is', this.selectedEmoji)
-
-
-
   }
 
   textareaValueChange(e: any) {
@@ -47,15 +42,11 @@ export class FeedbackComponent {
 
   onFeedbackSubmit() {
     this.feedbackService.submitFeedback({ rating: this.selectedEmoji, feedbackText: this.textareaValue });
-
-    this.selectedEmoji = ''
-    this.textareaValue = ''
-    this.isDismissed = false;
     this.showThankYou = true;
   }
 
   dismissFeedback() {
-    // this.isDismissed = true;
+    this.showFeedback.emit(false);
     this.selectedEmoji = ''
     this.textareaValue = ''
     this.showThankYou = false;

@@ -1,5 +1,5 @@
-<section class="bg-white drop-shadow-md py-5 mb-6" *ngIf="!isDismissed">
-    <div>
+<section class="bg-white drop-shadow-md py-5 mb-6">
+    <div *ngIf="!showThankYou">
         <h3 class="text-xl py-3">How was this result?</h3>
         <div class="mt-4">
             <button id="good" class="hover:scale-125 transition ease-in-out text-5xl mr-10"
@@ -12,18 +12,21 @@
                 [ngClass]="selectedEmoji === 'bad'? 'grayscale-0 hover:grayscale-0' : 'grayscale hover:grayscale-0'"
                 (click)="onEmojiClick($event)">🙁</button>
         </div>
-    </div>
 
-    <div #feedbackInput class="m-6 py-5 bg-stone-100 w-[80%] mx-auto" *ngIf="selectedEmoji && selectedEmoji !== '' ">
-        <h3 class="text-xl">What could be better?</h3>
-        <textarea (change)="textareaValueChange($event)" id="feedbackText" name="feedbackText" rows="2"
-            class="w-[80%] mx-auto p-4 drop-shadow-md my-5" placeholder="Optional"></textarea>
+        <div #feedbackInput class="m-6 py-5 bg-stone-100 w-[80%] mx-auto"
+            *ngIf="selectedEmoji && selectedEmoji !== '' ">
+            <h3 class="text-xl">What could be better?</h3>
+            <textarea (change)="textareaValueChange($event)" id="feedbackText" name="feedbackText" rows="2"
+                class="w-[80%] mx-auto p-4 drop-shadow-md my-5" placeholder="Optional"></textarea>
+        </div>
 
-
-        <button type="button" (click)="onFeedbackSubmit()"
+        <button type="button" (click)="onFeedbackSubmit()" *ngIf="selectedEmoji && selectedEmoji !== '' "
             class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded w-2/3 shadow transition ease-in-out duration-150">
             Send feedback</button>
     </div>
+
+
+
     <div class="my-6" *ngIf="showThankYou"><span class="">Thank you for your feedback!</span></div>
     <div class="my-6"><button class="font-bold" (click)="dismissFeedback()">Dismiss</button></div>
 </section>
