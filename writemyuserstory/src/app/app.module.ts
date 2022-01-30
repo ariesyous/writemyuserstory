@@ -7,6 +7,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { BuymeacoffeeComponent } from './buymeacoffee/buymeacoffee.component';
 
 
 
@@ -14,7 +15,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   declarations: [
     AppComponent,
     LandingComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    BuymeacoffeeComponent
   ],
   imports: [
     BrowserModule,
