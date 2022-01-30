@@ -5,9 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './buymeacoffee.component.html',
 })
 export class BuymeacoffeeComponent {
+  showBanner = true;
 
   constructor() { }
 
-
+  toggleBanner() {
+    this.showBanner = !this.showBanner;
+  }
 
 }
