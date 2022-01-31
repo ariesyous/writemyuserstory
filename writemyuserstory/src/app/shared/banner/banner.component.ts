@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-buymeacoffee',
-  templateUrl: './buymeacoffee.component.html',
+  selector: 'app-banner',
+  templateUrl: './banner.component.html',
 })
-export class BuymeacoffeeComponent {
-  showBanner = false;
+export class BannerComponent {
+
+  showBanner = true;
 
   constructor() { }
 
   toggleBanner() {
     this.showBanner = !this.showBanner;
   }
+
 
 }

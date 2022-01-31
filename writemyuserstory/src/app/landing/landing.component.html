@@ -11,13 +11,15 @@
         <h2 class="text-2xl text-center">AI-powered User Story Generator</h2>
     </section>
 
+    <app-banner></app-banner>
     <app-buymeacoffee></app-buymeacoffee>
 
 
     <main class="flex flex-col text-center md:max-w-[80%] lg:max-w-[60%] mx-auto">
         <div class="my-6">
-            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7"
+            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" maxlength="300"
                 class="w-full p-4 drop-shadow-md" placeholder="Describe what the story is for"></textarea>
+            <p class="text-left mb-2 text-gray-500">FYI: The prompt is limited to 300 characters.</p>
         </div>
 
         <div>
