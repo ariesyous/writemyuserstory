@@ -2,7 +2,7 @@
 
     <div class="px-5 py-4 border-l-4 border-orange-600">
         <div class="flex flex-row justify-between items-center cursor-pointer" (click)="toggleBanner()">
-            <h3 class="text-l font-semibold max-w-[70%]">
+            <h3 class="text-l font-semibold max-w-[80%]">
                 This app might stop working soon
             </h3>
             <svg [ngClass]="{'rotate-180': this.showBanner}"
@@ -13,7 +13,7 @@
                 </path>
             </svg>
         </div>
-        <div class="overflow-hidden max-h-0 transition-all duration-300 text-base"
+        <div class="overflow-scroll max-h-0 transition-all duration-300 text-base"
             [ngClass]="{'max-h-screen': this.showBanner}">
             <p class="my-2 mt-5">I started this project with an $18 grant from OpenAI. I quickly upgraded to the $120
                 usage limit as the service got
