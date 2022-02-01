@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './buymeacoffee.component.html',
 })
 export class BuymeacoffeeComponent {
-  showBanner = false;
+  showBanner = true;
 
   constructor() { }
 
