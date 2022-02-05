@@ -2,7 +2,7 @@
 
     <div class="px-5 py-4 border-l-4 border-orange-600">
         <div class="flex flex-row justify-between items-center cursor-pointer" (click)="toggleBanner()">
-            <h3 class="text-l font-semibold">
+            <h3 class="text-l font-semibold max-w-[80%]">
                 Consider supporting me
             </h3>
             <svg [ngClass]="{'rotate-180': this.showBanner}"
@@ -13,14 +13,14 @@
                 </path>
             </svg>
         </div>
-        <div class="overflow-hidden max-h-0 transition-all duration-300 text-base"
-            [ngClass]="{'max-h-96': this.showBanner}">
+        <div class="overflow-auto max-h-0 transition-all duration-300 text-base"
+            [ngClass]="{'max-h-screen': this.showBanner}">
             <p class="my-2 mt-5">Thank you for being so enthusiastic about this
                 project.</p>
             <p>OpenAI charges a few cents for each request, and I probably will not be able to self-fund the project at
                 this
                 rate
-                (received over 4000 requests and growing).</p>
+                (received over 11,700 requests and growing).</p>
             <p class="mt-4">I want to keep this free for as long as
                 possible, so please consider <a href="https://www.buymeacoffee.com/karan" target="_blank"
                     class="border-b-2 border-black">buying me

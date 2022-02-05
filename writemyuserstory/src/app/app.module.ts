@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { BuymeacoffeeComponent } from './buymeacoffee/buymeacoffee.component';
+import { BannerComponent } from './shared/banner/banner.component';
 
 
 
@@ -16,7 +17,8 @@ import { BuymeacoffeeComponent } from './buymeacoffee/buymeacoffee.component';
     AppComponent,
     LandingComponent,
     FeedbackComponent,
-    BuymeacoffeeComponent
+    BuymeacoffeeComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
