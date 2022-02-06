@@ -40,8 +40,6 @@ export class LandingComponent implements OnInit {
     this.openAIService.applyContentFilter(this.textareaValue).pipe(mergeMap((filterLabel: any) => {
 
       if (filterLabel === "2") {
-
-        console.log('not allowed');
         this.showSpinner = false;
         this.askForFeedback = false;
         this.generatedUserStory = '';
