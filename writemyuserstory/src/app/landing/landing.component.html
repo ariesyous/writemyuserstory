@@ -17,9 +17,18 @@
 
     <main class="flex flex-col text-center md:max-w-[80%] lg:max-w-[60%] mx-auto">
         <div class="my-6">
-            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" maxlength="300"
-                class="w-full p-4 drop-shadow-md" placeholder="Describe what the story is for"></textarea>
             <p class="text-left mb-2 text-gray-500">FYI: The prompt is limited to 300 characters.</p>
+
+            <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" maxlength="300"
+                class="w-full p-4 drop-shadow-md" [ngClass]="{'border-2 border-red-500': showError}"
+                placeholder="Describe what the story is about"></textarea>
+
+            <p class="text-left mb-2 text-red-500" *ngIf="showError && errorMessage !== '' ">
+                {{errorMessage}}</p>
+
+            <p class="text-left mb-6 text-gray-500" *ngIf="showError && errorDescription !== '' ">
+                {{errorDescription}}</p>
+
         </div>
 
         <div>
