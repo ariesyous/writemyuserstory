@@ -21,7 +21,7 @@
 
             <textarea (change)="textareaValueChange($event)" id="prompt" name="prompt" rows="7" maxlength="300"
                 class="w-full p-4 drop-shadow-md" [ngClass]="{'border-2 border-red-500': showError}"
-                placeholder="Describe what the story is for"></textarea>
+                placeholder="Describe what the story is about"></textarea>
 
             <p class="text-left mb-2 text-red-500" *ngIf="showError && errorMessage !== '' ">
                 {{errorMessage}}</p>
