@@ -13,6 +13,9 @@ export class LandingComponent implements OnInit {
   showSpinner = false;
   generatedUserStory = ''
   askForFeedback = false;
+  showError = false;
+  errorMessage = '';
+  errorDescription = '';
 
   constructor(private openAIService: OpenAIService) { }
 
@@ -42,9 +45,14 @@ export class LandingComponent implements OnInit {
         this.showSpinner = false;
         this.askForFeedback = false;
         this.generatedUserStory = '';
+        this.showError = true;
+        this.errorMessage = "This text has been classified as unsafe. Please try another prompt."
+        this.errorDescription = "This means that the text contains profane language, prejudiced or hateful language, something that could be NSFW, or text that portrays certain groups/people in a harmful manner."
+
         return filterLabel;
 
       } else {
+        this.resetError();
 
         return this.openAIService.createCompletion(this.textareaValue).pipe(
           tap((res: string) => {
@@ -63,5 +71,11 @@ export class LandingComponent implements OnInit {
 
   resetFeedback(feedbackFlag: boolean) {
     this.askForFeedback = feedbackFlag;
+  }
+
+  resetError() {
+    this.showError = false;
+    this.errorMessage = '';
+    this.errorDescription = '';
   }
 }
