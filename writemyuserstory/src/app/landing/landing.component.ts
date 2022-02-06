@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mergeMap, tap } from 'rxjs';
 import { OpenAIService } from '../open-ai.service';
 
 @Component({
@@ -27,14 +28,37 @@ export class LandingComponent implements OnInit {
     }
   }
 
+
+
   getCompletion() {
     this.showSpinner = true;
     this.resetFeedback(false);
-    this.openAIService.createCompletion(this.textareaValue).subscribe((res) => {
-      this.showSpinner = false;
-      this.generatedUserStory = res.trim();
-      this.askForFeedback = true;
-    })
+
+    this.openAIService.applyContentFilter(this.textareaValue).pipe(mergeMap((filterLabel: any) => {
+
+      if (filterLabel === "2") {
+
+        console.log('not allowed');
+        this.showSpinner = false;
+        this.askForFeedback = false;
+        this.generatedUserStory = '';
+        return filterLabel;
+
+      } else {
+
+        return this.openAIService.createCompletion(this.textareaValue).pipe(
+          tap((res: string) => {
+            this.showSpinner = false;
+            this.generatedUserStory = res.trim();
+            this.askForFeedback = true;
+          })
+        );
+      }
+
+    })).subscribe();
+
+
+
   }
 
   resetFeedback(feedbackFlag: boolean) {
